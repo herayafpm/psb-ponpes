@@ -128,4 +128,4 @@ nb-configuration.xml
 
 
 /public/assets/build/*
-/public/assets/dist/*
+!/public/assets/*

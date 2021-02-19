@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Coming Soon</title>	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>	<script type="text/javascript" src="js/countdown.js"></script>	<script type="text/javascript" src="js/script.js"></script>	<link rel="stylesheet" href="font/Bebas/stylesheet.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+		<header>
+			<h1><a href="http://www.tutorial-webdesign.com">Tutorial-Webdesign.com</a></h1>
+			<h2 class="title">Demo: <span>Coming Soon With Jquery, CSS3, HTML5 & PHP</span></h2>
+			<p><a href="http://www.tutorial-webdesign.com/coming-soon-with-jquery-php-css3-html5">&larr; Back to tutorial</a> [AND] <a href="https://www.twitter.com/tut_web/">Follow Twitter @tut_web</a></p>
+		</header>	
+		<section id="twd-container">
+			<h1 class="head">Coming Soon</h1>			<div id="count-down-container"></div>
+						<script type="text/javascript">			var currentyear=new Date().getFullYear()			var target_date=new cdtime("count-down-container", "December 29, "+currentyear+" 0:0:00")			target_date.displaycountdown("days", displayCountDown)			</script>
+			
+						<div id="twd-form">
+				<h6>Get Notified About Our Launch</h6>				<form id="twd-email-form">				  <input id="user_email" type="email" class="input" value="" name="email" placeholder="Add your e-mail address" required="required" />				  <button type="submit" class="button">Subscribe</button>				</form>			</div>
+						<div id="success">Thank you!</div>
+					</section>
+	</body>
+</html>

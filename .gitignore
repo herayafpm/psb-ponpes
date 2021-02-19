@@ -1,4 +1,3 @@
-revisi.txt
 #-------------------------
 # Operating Specific Junk Files
 #-------------------------
@@ -84,7 +83,7 @@ phpunit
 #-------------------------
 # Composer
 #-------------------------
-vendor/
+/vendor/
 
 #-------------------------
 # IDE / Development Files
@@ -102,9 +101,9 @@ _modules/*
 
 # Netbeans
 nbproject/
-build/
+/build/
 nbbuild/
-dist/
+/dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
@@ -126,3 +125,6 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
+
+/public/assets/build/*
+/public/assets/dist/*

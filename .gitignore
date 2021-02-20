@@ -119,3 +119,4 @@ _modules/*
 
 
 !public/
+!.env

@@ -51,7 +51,7 @@ class Tes extends BaseController
       }
       $no++;
     }
-    $hasil = 100 / sizeof($soal_id) * $benar;
+    $hasil = (int) (100 / sizeof($soal_id) * $benar);
     $kelasModel = new KelasModel();
     $kelas = $kelasModel->getKelas(['where' => ['kelas_mulai <=' => $hasil, 'kelas_selesai >=' => $hasil]]);
     // $kelas_nama = $kelas['kelas_nama'];

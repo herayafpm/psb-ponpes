@@ -3,12 +3,16 @@
 
 <head>
   <?= view('css/bootstrap') ?>
+  <style>
+    * {
+      font-family: DejaVu Sans, sans-serif;
+    }
+  </style>
 </head>
 
 <body>
-
-  <h4 align="center">PENERIMAAN SANTRI BARU <?= $_year_start ?>/<?= $_year_end ?><br>PONPES DARUSSALAM DUKUHWALUH PURWOKERTO<br></h4>
-  <p align="center">____________________________________________________________________________________</p>
+  <?= view('components/header_surat') ?>
+  <h4 align="center" style="line-height: 2.0;">PENERIMAAN SANTRI BARU <?= $_year_start ?>/<?= $_year_end ?><br>PONPES DARUSSALAM DUKUHWALUH PURWOKERTO<br></h4>
   <table class="table table-condensed">
     <tr>
       <td width="25">1</td>

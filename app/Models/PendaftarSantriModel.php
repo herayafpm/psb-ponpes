@@ -145,16 +145,18 @@ class PendaftarSantriModel extends Model
       $builder->where($params['where']);
     }
     $no = 0;
-    foreach ($columns as $column) {
-      if ($no != 0) {
-        $builder->orLike($column, $search);
-      } else {
-        $builder->like($column, $search);
+    foreach ($columns as $columnThis) {
+      if ($no > 0) {
+        if ($no == 1) {
+          $builder->like($columnThis, $search);
+        } else if ($no >= 2 && strpos($columnThis, "pendaftar_santri_status") == false) {
+          $builder->orLike($columnThis, $search);
+        }
       }
       $no++;
     }
-    foreach ($columnsPengguna as $column) {
-      $builder->orLike($column, $search);
+    foreach ($columnsPengguna as $columnPengguna) {
+      $builder->orLike($columnPengguna, $search);
     }
     $datas = $builder->get()->getResultArray();
     return $datas;
@@ -181,16 +183,18 @@ class PendaftarSantriModel extends Model
       $builder->where($params['where']);
     }
     $no = 0;
-    foreach ($columns as $column) {
-      if ($no != 0) {
-        $builder->orLike($column, $search);
-      } else {
-        $builder->like($column, $search);
+    foreach ($columns as $columnThis) {
+      if ($no > 0) {
+        if ($no == 1) {
+          $builder->like($columnThis, $search);
+        } else if ($no >= 2 && strpos($columnThis, "pendaftar_santri_status") == false) {
+          $builder->orLike($columnThis, $search);
+        }
       }
       $no++;
     }
-    foreach ($columnsPengguna as $column) {
-      $builder->orLike($column, $search);
+    foreach ($columnsPengguna as $columnPengguna) {
+      $builder->orLike($columnPengguna, $search);
     }
     return $builder->countAllResults();
   }

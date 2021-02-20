@@ -3,11 +3,16 @@
 
 <head>
   <title></title>
-  <!-- <link href="bootstrap.css" rel="stylesheet" type="text/css" /> -->
   <?= view('css/bootstrap') ?>
+  <style>
+    * {
+      font-family: DejaVu Sans, sans-serif;
+    }
+  </style>
 </head>
 
 <body>
+  <?= view('components/header_surat') ?>
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">

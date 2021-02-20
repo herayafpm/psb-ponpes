@@ -41,6 +41,7 @@ class HasilPengumuman extends BaseController
     $data['_pengguna'] = $this->request->pengguna;
     $data['_session'] = $this->session;
     $html = view($data['view'], $data);
+    // return $html;
     $dompdf = new Dompdf();
     $options = new Options();
     $options = $dompdf->getOptions();

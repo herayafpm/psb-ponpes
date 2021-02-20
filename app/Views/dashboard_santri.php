@@ -139,7 +139,7 @@
                   <tr>
                     <td width="150">Masuk Kelas</td>
                     <td>
-                      <?$_pendaftar_santri['pendaftar_santri_kelas']?>
+                      <?= $_pendaftar_santri['pendaftar_santri_kelas'] ?>
                     </td>
                   </tr>
                 <?php endif ?>

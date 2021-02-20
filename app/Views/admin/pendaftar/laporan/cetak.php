@@ -115,6 +115,7 @@
               <th>NIK</th>
               <th>Nama Santri</th>
               <th>Jenis Kelamin</th>
+              <th>Kelas</th>
               <th>Tanggal Daftar</th>
             </tr>
           </thead>
@@ -128,6 +129,7 @@
                 <td><?= $pendaftar_terima['pengguna_nik'] ?></td>
                 <td><?= $pendaftar_terima['pengguna_nama'] ?></td>
                 <td><?= $pendaftar_terima['pendaftar_santri_jk'] ?></td>
+                <td><?= $pendaftar_terima['pendaftar_santri_kelas'] ?></td>
                 <td><?= indonesian_date($pendaftar_terima['pengguna_created']) ?></td>
               </tr>
             <?php
@@ -148,6 +150,7 @@
               <th>NIK</th>
               <th>Nama Santri</th>
               <th>Jenis Kelamin</th>
+              <th>Kelas</th>
               <th>Tanggal Daftar</th>
             </tr>
           </thead>
@@ -161,6 +164,7 @@
                 <td><?= $pendaftar_tolak['pengguna_nik'] ?></td>
                 <td><?= $pendaftar_tolak['pengguna_nama'] ?></td>
                 <td><?= $pendaftar_tolak['pendaftar_santri_jk'] ?></td>
+                <td><?= $pendaftar_tolak['pendaftar_santri_kelas'] ?></td>
                 <td><?= indonesian_date($pendaftar_tolak['pengguna_created']) ?></td>
               </tr>
             <?php

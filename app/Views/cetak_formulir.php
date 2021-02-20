@@ -117,6 +117,11 @@
     </tr>
     <tr>
       <td>22</td>
+      <th>Masuk Kelas</th>
+      <td><?= $_pendaftar_santri['pendaftar_santri_kelas']; ?></td>
+    </tr>
+    <tr>
+      <td>23</td>
       <th>Status</th>
       <?php
       $status = "Belum diverifikasi";

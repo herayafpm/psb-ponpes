@@ -34,6 +34,13 @@
                     <td width="10">:</td>
                     <td><?= $_pendaftar_santri['pendaftar_santri_jk']; ?></td>
                   </tr>
+                  <?php if ($_pendaftar_santri['pendaftar_santri_kelas'] != null && !empty($_pendaftar_santri['pendaftar_santri_kelas'])) : ?>
+                    <tr>
+                      <td width="150">Masuk Kelas</td>
+                      <td width="10">:</td>
+                      <td><?= $_pendaftar_santri['pendaftar_santri_kelas']; ?></td>
+                    </tr>
+                  <?php endif ?>
                 </table>
                 <?php if ($_pendaftar_santri['pendaftar_santri_status'] == 1) : ?>
                   <h3 align="center"><span class="label label-success">Anda dinyatakan Lulus seleksi penerimaan santri baru</span></h3><br>

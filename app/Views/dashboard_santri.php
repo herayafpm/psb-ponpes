@@ -135,6 +135,14 @@
                   <td width="150">Bukti Pembayaran</td>
                   <td><img src="<?= base_url('') ?>/uploads/pembayaran/<?= $_pendaftar_santri['pendaftar_santri_pembayaran']; ?>" alt="Thumbnail Image" class="img-thumbnail img-responsive"></td>
                 </tr>
+                <?php if ($_pendaftar_santri['pendaftar_santri_kelas'] != null && !empty($_pendaftar_santri['pendaftar_santri_kelas'])) : ?>
+                  <tr>
+                    <td width="150">Masuk Kelas</td>
+                    <td>
+                      <?$_pendaftar_santri['pendaftar_santri_kelas']?>
+                    </td>
+                  </tr>
+                <?php endif ?>
                 <tr>
                   <td width="150">Status</td>
                   <?php

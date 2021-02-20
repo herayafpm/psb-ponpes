@@ -126,7 +126,7 @@ class PendaftarSantriModel extends Model
     if ($limit > 0) {
       $builder->limit($limit, $start);
     }
-    $columns = ['pendaftar_santri_id', 'pendaftar_santri_alamat', 'pendaftar_santri_jk', 'pendaftar_santri_status'];
+    $columns = ['pendaftar_santri_id', 'pendaftar_santri_alamat', 'pendaftar_santri_jk', 'pendaftar_santri_status', 'pendaftar_santri_kelas'];
     $no = 0;
     foreach ($columns as $column) {
       $columns[$no] = "{$this->table}.{$column}";
@@ -162,7 +162,7 @@ class PendaftarSantriModel extends Model
   public function count_all_not_detail($params = [], $search)
   {
     $builder = $this->db->table($this->table);
-    $columns = ['pendaftar_santri_id', 'pendaftar_santri_alamat', 'pendaftar_santri_jk', 'pendaftar_santri_status'];
+    $columns = ['pendaftar_santri_id', 'pendaftar_santri_alamat', 'pendaftar_santri_jk', 'pendaftar_santri_status', 'pendaftar_santri_kelas'];
     $no = 0;
     foreach ($columns as $column) {
       $columns[$no] = "{$this->table}.{$column}";

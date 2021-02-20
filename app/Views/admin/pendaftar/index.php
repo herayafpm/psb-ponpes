@@ -203,6 +203,10 @@
                 </td>
               </tr>
               <tr>
+                <td width="150">Masuk Kelas</td>
+                <td><span class="label label-info pendaftar_santri_kelas"></span></td>
+              </tr>
+              <tr>
                 <td width="150">Status</td>
                 <td><span class="label label-info pendaftar_santri_status"></span></td>
               </tr>
@@ -335,6 +339,7 @@
       status = "Ditolak oleh " + pendaftar.admin_nama + " pada " + toLocaleDate(pendaftar.pendaftar_santri_status_at)
     }
     $('.pendaftar_santri_status').html(status)
+    $('.pendaftar_santri_kelas').html(pendaftar.pendaftar_santri_kelas)
     $('#detailPendaftarModal').modal()
   }
 

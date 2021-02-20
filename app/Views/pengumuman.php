@@ -16,6 +16,7 @@
       <th>Nama Lengkap</th>
       <th>Jenis Kelamin</th>
       <th>Alamat</th>
+      <th>Kelas</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,7 @@
       <th>Nama Lengkap</th>
       <th>Jenis Kelamin</th>
       <th>Alamat</th>
+      <th>Kelas</th>
     </tr>
   </tfoot>
 </table>
@@ -96,6 +98,8 @@
         "data": "pendaftar_santri_jk",
       }, {
         "data": "pendaftar_santri_alamat",
+      }, {
+        "data": "pendaftar_santri_kelas",
       }, ],
     })
     tabel.on('order.dt page.dt', function() {

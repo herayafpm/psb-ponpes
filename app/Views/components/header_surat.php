@@ -1,4 +1,5 @@
-<table style="width: 100%">
+<img style="width: 100%;height:200px;" src="<?= base_url('assets/img/foto_kop.png') ?>" alt="">
+<!-- <table style="width: 100%">
   <tr>
     <td align="left"><img style="width: 100px;" src="<?= base_url('assets/img/logo_kop.png') ?>" alt=""></td>
     <td style="text-align: center;">
@@ -29,4 +30,4 @@
       <div class="col-md-12" style="background-color: black;height:1px;margin-top: -6px;"></div>
     </td>
   </tr>
-</table>
+</table> -->

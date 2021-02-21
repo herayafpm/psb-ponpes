@@ -13,9 +13,7 @@
 		"kint-php/kint": "^3.3",
 		"laminas/laminas-escaper": "^2.6",
 		"psr/log": "^1.1",
-		"firebase/php-jwt": "^5.2",
 		"guzzlehttp/guzzle": "7.0",
-		"phpoffice/phpspreadsheet": "^1.16",
 		"dompdf/dompdf": "^1.0"
 	},
 	"require-dev": {

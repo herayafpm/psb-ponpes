@@ -28,7 +28,7 @@
 <center>
 	<h3>PONDOK PESANTREN DARUSSALAM DUKUHWALUH PURWOKERTO </h3>
 	<p style="font-size: 20px">Selamat Datang di Website Penerimaan Santri Baru Online</p>
-	<?php if ($todays_date >= $start_date && $todays_date <= $end_date && $kuota > 0) : ?>
+	<?php if ($_pendaftaran != null && $todays_date >= $start_date && $todays_date <= $end_date && $kuota > 0) : ?>
 		<button type="submit" class="btn btn-primary mb-4" a href="#" data-toggle="modal" data-target="#daftarModal"> <i class="fa fa-edit" aria-hidden="true"></i> Daftar Sekarang</button>
 	<?php elseif ($_pendaftaran != null && $kuota > 0) : ?>
 		<h2><span class="badge badge-info">Kuota Sudah Terpenuhi</span></h2>
@@ -37,20 +37,20 @@
 	<hr>
 	<div class="about-sub-gd">
 		<?php
-		if ($todays_date >= $start_date && $todays_date <= $end_date && $kuota > 0) : ?>
+		if ($_pendaftaran != null && $todays_date >= $start_date && $todays_date <= $end_date && $kuota > 0) : ?>
 			<h1>Sisa waktu pendaftaran</h1><br>
 			<h4 style="color: #000">Pendaftaran dibuka mulai <?= indonesian_date($start_date); ?> s/d <?= indonesian_date($end_date); ?></h4>
 			<div align="center" class="col-md-12">
 				<div id="count-down-container"></div>
 			</div>
-		<?php elseif ($todays_date < $start_date) : ?>
+		<?php elseif ($_pendaftaran != null && $todays_date < $start_date) : ?>
 			<h2><span class="label label-primary">Pendaftaran Belum dibuka</span></h2>
 		<?php else : ?>
 			<h2><span class="badge badge-info">Pendaftaran Sudah Ditutup</span></h2>
 		<?php endif; ?>
 	</div>
 	<?php
-	if ($todays_date >= $start_date && $todays_date <= $end_date) : ?>
+	if ($_pendaftaran != null && $todays_date >= $start_date && $todays_date <= $end_date) : ?>
 		<div class="banner_bottom_in">
 			<h1>Jumlah Pendaftar saat ini : </h1>
 			<hr>
@@ -78,7 +78,7 @@
 <script>
 	$(document).ready(function() {
 		<?php
-		if ($todays_date >= $start_date && $todays_date <= $end_date) :
+		if ($_pendaftaran != null && $todays_date >= $start_date && $todays_date <= $end_date) :
 		?>
 			var currentyear = new Date().getFullYear()
 			var target_date = new cdtime("count-down-container", "<?= $end_date; ?>", function(time) {

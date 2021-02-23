@@ -15,8 +15,9 @@ class DashboardSantri extends BaseController
     $pendaftarSantriModel = new PendaftarSantriModel();
     $pendaftarSantri = $pendaftarSantriModel->getPendaftarSantri($this->request->pengguna->pengguna_id);
     $todays_date = date('Y-m-d H:i:s');
-    $start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai']));
-    $end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai']));
+    $start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai'] ?? date("Y-m-d H:i:s")));
+    $end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai'] ?? date("Y-m-d H:i:s")));
+    $data['_pendaftaran'] = $pendaftaran;
     $data['_pendaftar_santri'] = $pendaftarSantri;
     $data['start_date'] = $start_date;
     $data['end_date'] = $end_date;

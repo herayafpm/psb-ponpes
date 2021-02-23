@@ -14,9 +14,9 @@ class Home extends BaseController
 		$pendaftarSantriModel = new PendaftarSantriModel();
 		$pendaftaran = $pendaftaranModel->where(['pendaftaran_status' => 1])->first();
 		$todays_date = date('Y-m-d H:i:s');
-		$start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai']));
-		$end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai']));
-		$kuota = $pendaftaran['pendaftaran_kuota'];
+		$start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai'] ?? date('Y-m-d H:i:s')));
+		$end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai'] ?? date('Y-m-d H:i:s')));
+		$kuota = $pendaftaran['pendaftaran_kuota'] ?? 0;
 		$total_pendaftar = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
 		$data['kuota'] = (int) $kuota - (int) $total_pendaftar;
 		$data['_pendaftaran'] = $pendaftaran;

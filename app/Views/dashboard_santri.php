@@ -7,19 +7,22 @@
 
   <p>Pada halaman ini anda dapat melakukan pengisian formulir, melihat data diri, merubah data diri apabila ada kesalahan</p>
   <?php
-  if ($todays_date >= $start_date && $todays_date <= $end_date) : ?>
+  if ($_pendaftaran != null && $todays_date >= $start_date && $todays_date <= $end_date) : ?>
     <div class="edu_button">
       <?php if ($_pendaftar_santri == null) : ?>
         <a class="btn btn-primary btn-lg hvr-underline-from-left" href="<?= base_url('formulir') ?>" role="button">Isi Formulir</a>
-      <?php else : ?>
-        <a class="btn btn-primary btn-lg hvr-underline-from-left" href="<?= base_url('hasil_pengumuman') ?>" role="button">Pengumuman</a>
       <?php endif; ?>
     </div>
-  <?php elseif ($todays_date < $start_date) : ?>
+  <?php elseif ($_pendaftaran != null && $todays_date < $start_date) : ?>
     <h2><span class="label label-primary">Pendaftaran Belum dibuka</span></h2>
   <?php else : ?>
     <h2><span class="label label-warning">Pendaftaran Sudah ditutup</span></h2>
   <?php endif; ?>
+  <?php if ($_pendaftar_santri != null) : ?>
+    <div class="edu_button">
+      <a class="btn btn-primary btn-lg hvr-underline-from-left" href="<?= base_url('hasil_pengumuman') ?>" role="button">Pengumuman</a>
+    </div>
+  <?php endif ?>
 </div>
 <hr>
 <div class="top_spl_courses">

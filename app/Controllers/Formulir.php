@@ -21,30 +21,34 @@ class Formulir extends BaseController
     helper('my');
     $pendaftaranModel = new PendaftaranModel();
     $pendaftaran = $pendaftaranModel->where(['pendaftaran_status' => 1])->first();
-    $todays_date = date('Y-m-d H:i:s');
-    $start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai']));
-    $end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai']));
-    $pendaftarSantriModel = new PendaftarSantriModel();
-    $pendaftarSantri = $pendaftarSantriModel->getPendaftarSantri($this->request->pengguna->pengguna_id);
-    if ($todays_date >= $start_date && $todays_date <= $end_date && $pendaftarSantri == null) {
-      $programModel = new ProgramModel();
-      $programs = $programModel->findAll();
-      $data['_validation'] = $this->form_validation;
-      $data['_pendaftar_santri'] = $pendaftarSantri;
-      $data['start_date'] = $start_date;
-      $data['end_date'] = $end_date;
-      $data['todays_date'] = $todays_date;
-      $data['view'] = 'formulir';
-      $provinsiModel = new ProvinsiModel();
-      $data['_provinsis'] = $provinsiModel->findAll();
-      $data['_programs'] = $programs;
-      $data['_pengguna'] = $this->request->pengguna;
-      $data['_session'] = $this->session;
-      $method = $this->request->getMethod();
-      if ($method == "post") {
-        return $this->process($pendaftaran['pendaftaran_id']);
+    if ($pendaftaran) {
+      $todays_date = date('Y-m-d H:i:s');
+      $start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai']));
+      $end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai']));
+      $pendaftarSantriModel = new PendaftarSantriModel();
+      $pendaftarSantri = $pendaftarSantriModel->getPendaftarSantri($this->request->pengguna->pengguna_id);
+      if ($todays_date >= $start_date && $todays_date <= $end_date && $pendaftarSantri == null) {
+        $programModel = new ProgramModel();
+        $programs = $programModel->findAll();
+        $data['_validation'] = $this->form_validation;
+        $data['_pendaftar_santri'] = $pendaftarSantri;
+        $data['start_date'] = $start_date;
+        $data['end_date'] = $end_date;
+        $data['todays_date'] = $todays_date;
+        $data['view'] = 'formulir';
+        $provinsiModel = new ProvinsiModel();
+        $data['_provinsis'] = $provinsiModel->findAll();
+        $data['_programs'] = $programs;
+        $data['_pengguna'] = $this->request->pengguna;
+        $data['_session'] = $this->session;
+        $method = $this->request->getMethod();
+        if ($method == "post") {
+          return $this->process($pendaftaran['pendaftaran_id']);
+        } else {
+          return view($data['view'], $data);
+        }
       } else {
-        return view($data['view'], $data);
+        return redirect()->to(base_url(''));
       }
     } else {
       return redirect()->to(base_url(''));

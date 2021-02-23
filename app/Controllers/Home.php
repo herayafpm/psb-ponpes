@@ -20,7 +20,7 @@ class Home extends BaseController
 		if ($pendaftaran) {
 			$total_pendaftar = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
 		}
-		$data['kuota'] = (int) $kuota - (int) $total_pendaftar;
+		$data['kuota'] = (int) $kuota - (int) $total_pendaftar ?? 0;
 		$data['_pendaftaran'] = $pendaftaran;
 		$data['start_date'] = $start_date;
 		$data['end_date'] = $end_date;

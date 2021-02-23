@@ -22,9 +22,11 @@ class DashboardSantri extends BaseController
     $data['start_date'] = $start_date;
     $data['end_date'] = $end_date;
     $data['todays_date'] = $todays_date;
-    $data['jml'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
-    $data['jmlcowo'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Laki - Laki']);
-    $data['jmlcewe'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Perempuan']);
+    if ($pendaftaran) {
+      $data['jml'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
+      $data['jmlcowo'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Laki - Laki']);
+      $data['jmlcewe'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Perempuan']);
+    }
     $data['view'] = 'dashboard_santri';
     $data['_pengguna'] = $this->request->pengguna;
     $data['_session'] = $this->session;

@@ -17,13 +17,15 @@ class Home extends BaseController
 		$start_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_mulai'] ?? date('Y-m-d H:i:s')));
 		$end_date = date('Y-m-d H:i:s', strtotime($pendaftaran['pendaftaran_tgl_selesai'] ?? date('Y-m-d H:i:s')));
 		$kuota = $pendaftaran['pendaftaran_kuota'] ?? 0;
-		$total_pendaftar = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
+		if ($pendaftaran) {
+			$total_pendaftar = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id']]);
+		}
 		$data['kuota'] = (int) $kuota - (int) $total_pendaftar;
 		$data['_pendaftaran'] = $pendaftaran;
 		$data['start_date'] = $start_date;
 		$data['end_date'] = $end_date;
 		$data['todays_date'] = $todays_date;
-		$data['jml'] = $total_pendaftar;
+		$data['jml'] = $total_pendaftar ?? 0;
 		$data['jmlcowo'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Laki - Laki']);
 		$data['jmlcewe'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Perempuan']);
 		$data['view'] = 'dashboard';

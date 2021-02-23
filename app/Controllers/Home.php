@@ -26,9 +26,11 @@ class Home extends BaseController
 		$data['start_date'] = $start_date;
 		$data['end_date'] = $end_date;
 		$data['todays_date'] = $todays_date;
-		$data['jml'] = $total_pendaftar;
-		$data['jmlcowo'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Laki - Laki']);
-		$data['jmlcewe'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Perempuan']);
+		if ($pendaftaran) {
+			$data['jml'] = $total_pendaftar;
+			$data['jmlcowo'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Laki - Laki']);
+			$data['jmlcewe'] = $pendaftarSantriModel->count_where(['pendaftaran_id' => $pendaftaran['pendaftaran_id'], 'pendaftar_santri_jk' => 'Perempuan']);
+		}
 		$data['view'] = 'dashboard';
 		$data['_session'] = $this->session;
 		if ($this->session->isLogin != null && $this->session->role_id != 3) {

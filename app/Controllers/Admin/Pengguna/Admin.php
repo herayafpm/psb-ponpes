@@ -173,7 +173,7 @@ class Admin extends BaseController
       $this->session->setFlashdata('error', 'admin tidak ditemukan');
       return redirect()->to(base_url("admin/pengguna/santri"));
     }
-    if ($pengguna['role_id'] != 2) {
+    if ($pengguna->role_id != 2) {
       $this->session->setFlashdata('error', 'admin tidak ditemukan');
       return redirect()->to(base_url("admin/pengguna/santri"));
     }

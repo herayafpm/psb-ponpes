@@ -113,7 +113,7 @@ class Santri extends BaseController
       $this->session->setFlashdata('error', 'pengguna tidak ditemukan');
       return redirect()->to(base_url("admin/pengguna/santri"));
     }
-    if ($pengguna['role_id'] != 3) {
+    if ($pengguna->role_id != 3) {
       $this->session->setFlashdata('error', 'pengguna tidak ditemukan');
       return redirect()->to(base_url("admin/pengguna/santri"));
     }
